@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MY APP</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo">My Blog</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="#">Home</a></li>
+          </ul>
+        </div>
+      </nav>
+
+<div class="container">
+    <h1 class="header center">My Crazy Legit Blog</h1>
+    <div class="row center">
+        <h5 class="header col s12 light">This is where I post my life so people think im cool.</h5>
+      </div>
+</div>
+
+
+  <div class="container">
+    
+    <div class="row">
+    <div class="col s6 offset-s3">
+        <% for(var i=0; i<quotes.length; i++) {%>
+      <div class="card blue-grey darken-1 white-text">
+          <h4 class="card-title"><%= quotes[i].name %></h4>
+          <p class="card-content"><%= quotes[i].quote %></p>
+      </div>
+      <% } %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s6 offset-s3">
+      <form action="/quotes" method="POST">
+        <div class="input-field">
+          <input type="text" name="name">
+          <label>Name</label>
+      </div>
+      <div class="input-field">
+        <input type="text" name="quote">
+        <label>Message</label>
+      </div>
+        <button type="submit" class="waves-effect waves-light btn">Submit
+            <i class="material-icons right">send</i>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+</body>
+</html>
