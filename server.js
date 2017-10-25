@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser= require('body-parser');
 const app = express();
-var PORT = 4000;
+var PORT = process.env.PORT || 4000;
 
 var mongoURL = 'mongodb://app-user:app-user@ds231205.mlab.com:31205/heroku_m4fcgnqv';
 const MongoClient = require('mongodb').MongoClient
