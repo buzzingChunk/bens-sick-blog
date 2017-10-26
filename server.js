@@ -41,7 +41,13 @@ MongoClient.connect(mongoURL, (err, database) => {
     })
   })
   
-
+  var aws = require("aws-lib");
+  
+ ec2 = aws.createEC2Client('AKIAJSKX5X3FVB6XT7YQ', '+B0pkYxeBzhpyq+Pf/qWz5rFyakQM10J8o+IBSOx');
+  
+ ec2.call("DescribeInstances", {}, function(err, result) {
+   console.log(result);
+ })
 
  
   
