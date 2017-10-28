@@ -40,14 +40,7 @@ MongoClient.connect(mongoURL, (err, database) => {
       res.render('index.ejs', {quotes: result})
     })
   })
-  
-  var aws = require("aws-lib");
-  
- ec2 = aws.createEC2Client('AKIAJSKX5X3FVB6XT7YQ', '+B0pkYxeBzhpyq+Pf/qWz5rFyakQM10J8o+IBSOx');
-  
- ec2.call("DescribeInstances", {}, function(err, result) {
-   console.log(result);
- })
 
- 
-  
+  app.get('/about', (req, res) =>{
+    res.render('about.ejs')
+  })
