@@ -1,27 +1,27 @@
-let scotchTodo = angular.module('scotchTodo', ['ngRoute'])
+let scotchTodo = angular.module('scotchTodo', ['ui.router'])
 
-function MainController($scope, $http){
+scotchTodo.controller('MainController',  function($scope, $http) {
 
     $scope.formData = {}
-
-    $http.get('api/todos')
-        .success((data) =>{
-            $scope.todos = data
-            console.log(data)
-        })
-        .error((data) =>{
-            console.log('Error: ' + data)
-        })
     
-    $scope.createTodo = () =>{
-        $http.post('/api/todos', $scope.formData)
-            .success((data) =>{
-                $scope.formData = {}
-                $scope.todos = data
+            $http.get('api/todos').then(function(response){
+                $scope.todos = response.data
                 console.log(data)
             })
-            .error((data) =>{
-                consol.elog('Error: ' + data)
+        
+        $scope.createTodo = () =>{
+            $http.post('/api/todos', $scope.formData).then(function(response){
+                $scope.formData = {}
+                $scope.todos = response.data
+                console.log(data)
             })
-    }    
-}
+        }    
+  } );
+
+scotchTodo.directive('navbar', function() {
+    return {
+        templateUrl : 'nav.html'
+    }
+})
+
+  

@@ -3,6 +3,7 @@ const app = express()
 const mongoose = require('mongoose')
 const bodyParser= require('body-parser')
 
+
 let PORT = process.env.PORT || 4000
 
 mongoose.connect('mongodb://app-user:app-user@ds231205.mlab.com:31205/heroku_m4fcgnqv', {
@@ -17,10 +18,14 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }))
 app.listen(PORT)
 console.log('Listening on ' + PORT)
 
-let Todo = mongoose.model('Todo',{
+let Schema = mongoose.Schema
+let someModelSchema = new Schema({
   name : String,
-  text : String
+  text : String,
+  imgUrl : String
 })
+
+let Todo = mongoose.model('Todo', someModelSchema)
 
 app.get ('/api/todos', (req, res) =>{
   Todo.find((err, todos) =>{
@@ -38,6 +43,8 @@ app.post('/api/todos', (req, res) =>{
   Todo.create({
     name: req.body.name,
     text : req.body.text,
+    imgUrl : req.body.imgUrl,
+
     done : false
   }, (err, todo) =>{
     if (err)
@@ -52,48 +59,6 @@ app.post('/api/todos', (req, res) =>{
   })
 })
 
-app.get('*', (req, res) =>{
-  res.sendfile('./public/index.html')
-})
-
-/*
-var mongoURL = 'mongodb://app-user:app-user@ds231205.mlab.com:31205/heroku_m4fcgnqv';
-const MongoClient = require('mongodb').MongoClient
-
-var db
-
-MongoClient.connect(mongoURL, (err, database) => {
-    if (err) return console.log(err)
-    db = database
-    app.listen(PORT, () => {
-      console.log('listening on '+ PORT)
-    })
-  
-}) 
-
-
-
-  app.post('/quotes', (req, res) => {
-    db.collection('quotes').save(req.body, (err, result) => {
-      if (err) return console.log(err)
-  
-      console.log('saved to database')
-      res.redirect('/')
-    })
-  })
-
-
-  app.set('view engine', 'ejs')
-
-  app.get('/', (req, res) => {
-    db.collection('quotes').find().toArray((err, result) => {
-      if (err) return console.log(err)
-      // renders index.ejs
-      res.render('index.ejs', {quotes: result})
-    })
-  })
-
-  app.get('/about', (req, res) =>{
-    res.render('about.ejs')
-  })
-  */
+app.get('*', function(req, res) {
+  res.sendfile('./public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
+});
