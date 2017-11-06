@@ -12,7 +12,13 @@ scotchTodo.config(function($stateProvider, $urlRouterProvider) {
         url: '/about',
         templateUrl: 'about.html'
     }
+    var resumeState = {
+        name: 'resume',
+        url: '/resume',
+        templateUrl: 'resume.html'
+    }
 
     $stateProvider.state(homeState)
     $stateProvider.state(aboutState)
+    $stateProvider.state(resumeState)
 })

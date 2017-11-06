@@ -2,11 +2,12 @@ let scotchTodo = angular.module('scotchTodo', ['ui.router'])
 
 scotchTodo.controller('MainController',  function($scope, $http) {
 
+
     $scope.formData = {}
     
             $http.get('api/todos').then(function(response){
                 $scope.todos = response.data
-                console.log(data)
+                console.log(response.data)
             })
         
         $scope.createTodo = () =>{
@@ -18,10 +19,14 @@ scotchTodo.controller('MainController',  function($scope, $http) {
         }    
   } );
 
+
+
+
 scotchTodo.directive('navbar', function() {
     return {
         templateUrl : 'nav.html'
     }
 })
+
 
   
