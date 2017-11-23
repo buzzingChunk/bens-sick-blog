@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col s6 offset-s3">
+        <form class="z-depth-5"> 
+            <div class="input-field">
+                <input type="text" name="name" ng-model="formData.name">
+                <label>Name</label>
+            </div>
+            <div class="input-field">
+                <textarea type="text" class="materialize-textarea" ng-model="formData.text"></textarea>
+                <label>Message</label>
+            </div>
+            <div class="input-field">
+                    <textarea type="text" class="materialize-textarea" ng-model="formData.imgUrl"></textarea>
+                    <label>Image Url</label>
+                </div>
+            <button type="submit" class="waves-effect waves-light btn" ng-click="createTodo()">Submit
+                <i class="material-icons right">send</i>
+            </button>
+        </form>
+    </div>
+</div>
