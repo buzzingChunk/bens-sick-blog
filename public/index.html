@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html  ng-app="scotchTodo" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+  <title>Ben Eggert</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script><!-- load angular --> 
+  <script src="//unpkg.com/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
+
+  <script src="index.js"></script>
+  <script src="routes.js"></script>
+</head>
+  <body ng-controller="MainController">
+    <navbar></navbar>
+    
+
+
+  <div class="container" >
+      <ui-view></ui-view>
+  </div>    
+
+  <footer class="page-footer top-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">BuzzingChunk.com</h5>
+          <p class="grey-text text-lighten-4">If you like what you see <a href= "mailto:beneggert233@gmail.com">shoot me an email</a></p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Links</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/benjamin-eggert-9a3b6542/">Linkedin</a></li>
+            <li><a class="grey-text text-lighten-3" href="https://www.instagram.com/beneggert233/?hl=en">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      © 2014 Copyright BuzzingChunk
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  </body>
+  <script>
+    $( document ).ready(function(){
+      $('.button-collapse').sideNav({
+      menuWidth: 300, // Default is 300
+      closeOnClick: true,
+      draggable: true 
+    }
+  );
+    })
+    </script>
+</html>

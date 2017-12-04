@@ -1,0 +1,27 @@
+.resume-icon{
+    margin-top: 1.14rem;
+}
+li{
+    list-style-type: none;
+}
+body{
+    background-color: #efefef;
+}
+form{
+    background-color: #bdbdbd;
+    color:#000000;
+}
+.input{
+    color:#000000;
+}
+
+.top-footer{
+    background-color: #9162e4;    
+}
+.nav-wrapper{
+    background-color:#5e35b1;
+    
+}
+.card-content, .card .card-reveal{
+    background-color: #bdbdbd; 
+}
